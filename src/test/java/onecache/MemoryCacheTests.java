@@ -43,8 +43,12 @@ class MemoryCacheTests {
         String a = "A";
         String b = "B";
 
+        cache = new MemoryCache(2);
         cache.set("a", a);
         cache.set("b", b);
+
+        System.out.println(cache.get("a"));
+        System.out.println(cache.get("b"));
 
         assertCachedEquals(cache, "a", a);
         assertCachedEquals(cache, "b", b);

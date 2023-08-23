@@ -71,7 +71,7 @@ public class MemoryCache<T> implements Cache<T> {
         this.mostRecentlyReadKeys.remove(key);
         this.mostRecentlyReadKeys.addLast(key);
 
-        return new CacheResult<T>(false, item.value);
+        return new CacheResult<T>(true, item.value);
     }
 
     /**
@@ -82,7 +82,7 @@ public class MemoryCache<T> implements Cache<T> {
      */
     @Override
     public void set(String key, T value) {
-        this.set(key, value, 0);
+        this.set(key, value, 50000);
     }
 
     /**
